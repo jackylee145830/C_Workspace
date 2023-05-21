@@ -1,0 +1,2 @@
+Ctrl+Shift+B 進行編譯
+輸入 ./<檔名>.exe+Enter執行程式

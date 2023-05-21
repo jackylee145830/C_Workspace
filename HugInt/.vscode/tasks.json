@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe 建置使用中檔案",
+			"command": "C:\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				//"${file}",
+				"${workspaceFolder}/*.cpp",
+				//tasks.json構建.cpp當前文件夾中的所有文
+				//"${file}"改成"${workspaceFolder}/*.cpp"
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "編譯器: C:\\mingw64\\bin\\g++.exe"
+		}
+	]
+}

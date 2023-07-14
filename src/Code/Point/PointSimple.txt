@@ -139,6 +139,7 @@ int main()
 }
 int sum(int *arr, int element) // *arr代表傳入陣列第一個數
 {
+    int total = 0;
      for(int i = 0; i < element; ++i)
      {
          total += arr[i];

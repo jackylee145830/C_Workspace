@@ -1,11 +1,29 @@
-
 #include<stdio.h>
-int main(){
-	int x = 38; //宣告變數x並指定初值
-	int *p; //宣告指標變數p儲存int變數位址
-	p = &x; //指定指標變數p的值是變數x的位址
-	printf("變數x的位址 >> %p\n\n", &x);
-	printf("指標變數p的值 >> %p\n\n", p);
-	printf("指標變數p的位址 >> %p", &p);
-	return 0;
+#include <iostream>
+using namespace std;
+
+int * even(); //先告訴電腦說我有一個函式
+
+int main()
+{
+    int *arr; //用來存陣列
+    
+    arr = even();
+    for(int i = 0; i < 15; ++i)
+    {
+        printf("%d\n", arr[i]);
+		 //printf("%d\n", *(arr+i));
+    }
+    return 0;
+}
+int * even() // 回傳值是一個指標
+{
+     static int num[15];
+     int even = 0;
+     for(int i = 0; i < 15; ++i)
+     {
+           num[i] = even;
+           even += 2;
+     }
+     return (num); // 直接回傳陣列（指標）回去
 }

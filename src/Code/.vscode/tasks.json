@@ -8,10 +8,7 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
-				//"${file}",
-				"${workspaceFolder}/*.cpp",
-				//tasks.json構建.cpp當前文件夾中的所有文
-				//"${file}"改成"${workspaceFolder}/*.cpp"
+				"${file}",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe"
 			],

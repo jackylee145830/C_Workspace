@@ -3,14 +3,16 @@
 Pointers 指標
 -------------
 
-// 指標也算是一種變數，只是裡面存的不是一般的「數字」，而是記憶體位置。
-
-// & 記憶體位址 （取址）
-// * 取出內容 （取值）
-
-// %x 可以印出16進位
-
-// printf("The address of num is %x.\n", &num);
+#include<stdio.h>
+int main(){
+	int x = 38; //宣告變數x並指定初值
+	int *p; //宣告指標變數p儲存int變數位址
+	p = &x; //指定指標變數p的值是變數x的位址
+	printf("變數x的位址 >> %p\n\n", &x);
+	printf("指標變數p的值 >> %p\n\n", p);
+	printf("指標變數p的位址 >> %p", &p);
+	return 0;
+}
 
 
 #include <iostream>
@@ -31,6 +33,7 @@ int main()
 
     p=&a1;
     q=&p;
+
     printf("B ==point adress==\n");
     printf("The address of &a1 is %x.\n", &a1);
     printf("The point address of p is %x.\n", p);
@@ -53,7 +56,6 @@ int main()
     printf("The value of a2 is %d.\n", a2);
     printf("pointing to the value *p is %d.\n", *p);
     printf("pointing to the value **q is %d.\n", **q);
-
 
     return 0;
 
@@ -171,6 +173,3 @@ int * even() // 回傳值是一個指標
      }
      return (num); // 直接回傳陣列（指標）回去
 }
-
-
-//陣列arr[i]等同於*(arr+i)

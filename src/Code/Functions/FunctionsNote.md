@@ -213,10 +213,54 @@ int foo(int n) {
 ```
 foo 指定給 fp，等效於 &foo 指定給 fp，在指定之後，fp 儲存了 foo 的位址，在呼叫時，fp(20) 等效於 (*fp)(20)。
 
+&emsp;<!--空行-->
 
+## 巨集(Macro)
 
+C的前置處理器(Preprocessor)有一個#define命令,可用來取代原始程式內的某些字串:
+```
+#define PI 3.14159
+main() {
+    double r1 = 3.0L, r2 = 5.0L;
+    printf("Circle(3) area = %lf", 2 * PI * r1 * r1);
+    printf("Circle(5) area = %lf", 2 * PI * r2 * r2);
+}
+```
+就相當於將程式寫成
+```
+main() {
+    double r1 = 3.0L, r2 = 5.0L;
+    printf("Circle(3) area = %lf", 2 * 3.14159 * r1 * r1);
+    printf("Circle(5) area = %lf", 2 * 3.14159 * r2 * r2);
+}
+```
+define不但可以做簡單的字串取代,還可以加上參數以完成複雜的字串取代工作
+```
+#define max(A, B) ((A) > (B) ? (A) : (B))
+main() {
+     int x, p=3, q=5, r=2, s=7;
+     x = max(p+q, r+s);
+}
+```
+上述程式相當於
+```
+main() {
+     int x, p=3, q=5, r=2, s=7;
+     x = ((p+q) > (r+s) ? (p+q) : (r+s));
+}
+```
+這種巨集是由preprocessor透過字串取來達成的,和正常的函數呼叫完全不同。在下面的例子中,如果不知道square是巨集的話,就會搞不清楚為何跑出來的結果不正確了
+```
+#define square(x) x * x
+main() {
+    int z = 3;
+    printf("%d\n", square(z + 1));
+}
+```
+印出來是7而不是16喔
 
 ***
+
 
 ## 練習
 
@@ -247,3 +291,4 @@ printf("%.3f\n", area);
  
 }
 ```
+

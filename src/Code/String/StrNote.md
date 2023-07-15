@@ -32,17 +32,55 @@ char *strncpy( char *restrict dest, const char *restrict src, size_t count );
 
 
 ## 2. 字串的輸入、輸出 (String Input / Output)
-scanf
-fgets的使用
+
+輸入(String Input)
+
+**scanf**
+```
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char name[20];
+    int age;
+    printf("Please enter your name and age\n");
+    scanf("%s %d", name, &age);
+    return 0;
+}
+```
+**fgets**
+
 fgets(陣列（字串）名稱, 想要讀取的數量大小, stdin)
 
-puts
+fgets()會在輸出時，自動多加換行\n。
+```
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char name[20];
+ 
+    fgets (name, 20, stdin);
+    puts(name);
+    return 0;
+}
+```
+
+&emsp;<!--空行-->
+
+輸出（String Output）
+
+**printf**
+
+**puts**
+
 
 &emsp;<!--空行-->
 
 ## 3.string.h
 **strlen()**
- — 得到字串長度
+
+得到字串長度
 ```
 #include <stdio.h>
 #include <string.h>
@@ -61,11 +99,17 @@ int main(void) {
 ```
 
 strcat() — 合併兩個字串
+
 strncat(str1（被合併的字串）, str2（原本的字串）, n) — 將str2的前n個字母合併到str1上
+
 strcpy() — 複製字串
+
 strncpy(str1, str2, n) — 從第str2中的第n個字母複製到str1上
+
 strcmp() — 比較兩個字串
+
 strchr(str1, c) — 回傳字母 c 在str1上的哪一個位置  當沒找到字母c，就會回傳NULL
+
 strrchr(str1, c) — 倒著找回來字母 c 在str1上的哪一個位子
 
 &emsp;<!--空行-->

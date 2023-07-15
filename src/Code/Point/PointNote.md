@@ -1,8 +1,28 @@
 
--------------
-Pointers 指標
--------------
 
+# Pointers 指標
+
+
+指標也算是一種變數，只是裡面存的不是一般的「數字」，而是記憶體位置。
+
+我們可以這樣宣告一個指標變數：
+int *p;
+int * p;
+int* p;
+
+
+& 憶體位址 （取址）
+*取出內容 （取值）
+
+%x 可以印出16進位
+printf("The address of num is %x.\n", &num);
+
+
+陣列arr[i]等同於*(arr+i)
+
+&emsp;<!--空行-->
+## Pointers 指標
+```
 #include<stdio.h>
 int main(){
 	int x = 38; //宣告變數x並指定初值
@@ -13,8 +33,9 @@ int main(){
 	printf("指標變數p的位址 >> %p", &p);
 	return 0;
 }
+```
 
-
+```
 #include <iostream>
 using namespace std;
 int main()
@@ -60,13 +81,10 @@ int main()
     return 0;
 
 }
+```
 
-
-
-
------------------------
-指標陣列
------------------------
+## 指標陣列
+```
 #include <iostream>
 using namespace std;
 int main()
@@ -95,12 +113,10 @@ int main()
 
     return 0;
 }
+```
 
-
-
------------------------
-函式與指標
------------------------
+## 函式與指標
+```
 #include <iostream>
 using namespace std;
 void swap(int *num1, int *num2); //先告訴電腦說我有一個函式
@@ -120,12 +136,10 @@ void swap(int *num1, int *num2)
      *num1 = *num2;
      *num2 = temp;
 }
+```
 
-
-
-------------------------
-函式與陣列的關係
-------------------------
+## 函式與陣列的關係
+```
 #include <iostream>
 using namespace std;
 int sum(int *arr, int element); //先告訴電腦說我有一個函式
@@ -146,8 +160,9 @@ int sum(int *arr, int element) // *arr代表傳入陣列第一個數
      }
      return (total);
 }
+```
 
-
+```
 #include<stdio.h>
 #include <iostream>
 using namespace std;
@@ -174,15 +189,13 @@ int * even() // 回傳值是一個指標
      }
      return (num); // 直接回傳陣列（指標）回去
 }
+```
 
+&emsp;<!--空行-->
 
+## 命令列引數
 
-
-------------------
-命令列引數
-------------------
-prog "This is a string!"
-
+```
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
@@ -192,3 +205,9 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+```
+參數 argc 是一個整數，記錄命令列引數的個數，這個數目包括了程式名稱，例如下面的執行指令，argc 將記錄為 5：
+
+prog hello.c -o  -c project.p
+
+每個引數之間以空白作區隔，上面的命令包括程式名稱共會有五個引數，即 "prog"、"hello.c"、"-o"、"-c"、"project.p"。

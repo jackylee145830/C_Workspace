@@ -41,7 +41,25 @@ puts
 &emsp;<!--空行-->
 
 ## 3.string.h
-strlen() — 得到字串長度
+**strlen()**
+ — 得到字串長度
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+    char buf[80];
+
+    puts("input string...");
+    scanf("%s", buf);
+
+    size_t length = strlen(buf);
+    printf("string length:%lu\n", length);
+
+    return 0;
+}
+```
+
 strcat() — 合併兩個字串
 strncat(str1（被合併的字串）, str2（原本的字串）, n) — 將str2的前n個字母合併到str1上
 strcpy() — 複製字串
@@ -50,7 +68,24 @@ strcmp() — 比較兩個字串
 strchr(str1, c) — 回傳字母 c 在str1上的哪一個位置  當沒找到字母c，就會回傳NULL
 strrchr(str1, c) — 倒著找回來字母 c 在str1上的哪一個位子
 
-字串轉換成數字
-atoi ， ACSII convert to integer
-atof ， ACSII convert to float
-atol ， ACSII convert to long integer
+&emsp;<!--空行-->
+
+**字串轉換成數字**
+1. atoi ， ACSII convert to integer
+2. atof ， ACSII convert to float
+3. atol ， ACSII convert to long integer
+```
+#include <stdio.h>      /* printf, fgets */
+#include <stdlib.h>     /* atoi */
+
+int main ()
+{
+    int a;
+    char memory[256];
+    printf ("Enter a number: ");
+    fgets (memory, 256, stdin);
+    a = atoi (memory);
+    printf ("The value entered is %d. Its double is %d.\n", a, a*2);
+    return 0;
+}
+```

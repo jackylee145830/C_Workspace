@@ -1,7 +1,7 @@
 
 # 字串
 
-## 1. 字串的宣告
+### 1. 字串的宣告
 
 字串是一個字元陣列，最後一個字元以空字元 '\0' 作結尾，
 
@@ -31,7 +31,7 @@ char *strncpy( char *restrict dest, const char *restrict src, size_t count );
 &emsp;<!--空行-->
 
 
-## 2. 字串的輸入、輸出 (String Input / Output)
+### 2. 字串的輸入、輸出 (String Input / Output)
 
 輸入(String Input)
 
@@ -77,7 +77,8 @@ int main()
 
 &emsp;<!--空行-->
 
-## 3.string.h
+### 3.string.h
+
 **strlen()**
 
 得到字串長度

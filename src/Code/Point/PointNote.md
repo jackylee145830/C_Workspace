@@ -21,7 +21,8 @@ printf("The address of num is %x.\n", &num);
 陣列arr[i]等同於*(arr+i)
 
 &emsp;<!--空行-->
-## Pointers 指標
+
+### Pointers 指標
 ```
 #include<stdio.h>
 int main(){
@@ -83,7 +84,7 @@ int main()
 }
 ```
 
-## 指標陣列
+### 指標陣列
 ```
 #include <iostream>
 using namespace std;
@@ -115,7 +116,7 @@ int main()
 }
 ```
 
-## 函式與指標
+### 函式與指標
 ```
 #include <iostream>
 using namespace std;
@@ -138,7 +139,7 @@ void swap(int *num1, int *num2)
 }
 ```
 
-## 函式與陣列的關係
+### 函式與陣列的關係
 ```
 #include <iostream>
 using namespace std;
@@ -193,7 +194,7 @@ int * even() // 回傳值是一個指標
 
 &emsp;<!--空行-->
 
-## 命令列引數
+### 命令列引數
 
 ```
 #include <stdio.h>

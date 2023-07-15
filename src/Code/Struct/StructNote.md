@@ -107,6 +107,40 @@ void main() {
 }
 ```
 
+```
+#include <stdio.h>
+
+typedef const char* String;
+
+typedef struct {  
+    String id;  
+    String name; 
+    double balance;
+} Account;
+
+typedef struct {  
+    Account acct;
+    double overdraftlimit;
+
+} CheckingAccount;
+
+int main() { 
+    CheckingAccount checking = {
+        .acct = {"123-456-789", "Justin Lin", 1000},
+        .overdraftlimit = 30000
+    };
+
+    printf("%s\n", checking.acct.id);
+    printf("%s\n", checking.acct.name);
+    printf("%f\n", checking.acct.balance);
+    printf("%f\n", checking.overdraftlimit);
+
+    return 0; 
+} 
+```
+
+&emsp;<!--空行-->
+
 ### 用於struct的運算符號
 
 在如下的結構定義裡,next前面的*不可省略,否則就遞迴定義了,Compiler將無法決定struct list的大小。

@@ -19,3 +19,17 @@ printf("The address of num is %x.\n", &num);
 
 
 陣列arr[i]等同於*(arr+i)
+
+
+
+
+------------------
+命令列引數
+------------------
+int main(int argc, char *argv[]) {
+    ....
+}
+參數 argc 是一個整數，記錄命令列引數的個數，這個數目包括了程式名稱，例如下面的執行指令，argc 將記錄為 5：
+
+prog hello.c -o  -c project.p
+每個引數之間以空白作區隔，上面的命令包括程式名稱共會有五個引數，即 "prog"、"hello.c"、"-o"、"-c"、"project.p"。

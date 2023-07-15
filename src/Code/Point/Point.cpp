@@ -1,29 +1,13 @@
-#include<stdio.h>
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
-int * even(); //先告訴電腦說我有一個函式
 
-int main()
-{
-    int *arr; //用來存陣列
+//main 函式在括號中總是空白的，若要使用命令列引數
+//每個引數之間以空白作區隔
+int main(int argc, char *argv[]) {
     
-    arr = even();
-    for(int i = 0; i < 15; ++i)
-    {
-        printf("%d\n", arr[i]);
-		 //printf("%d\n", *(arr+i));
+    for(int i = 1; i < argc; i++) {
+        printf("%s\n", argv[i]);
     }
+
     return 0;
-}
-int * even() // 回傳值是一個指標
-{
-     static int num[15];
-     int even = 0;
-     for(int i = 0; i < 15; ++i)
-     {
-           num[i] = even;
-           even += 2;
-     }
-     return (num); // 直接回傳陣列（指標）回去
 }

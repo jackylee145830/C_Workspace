@@ -174,3 +174,21 @@ int * even() // 回傳值是一個指標
      }
      return (num); // 直接回傳陣列（指標）回去
 }
+
+
+
+
+------------------
+命令列引數
+------------------
+prog "This is a string!"
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    for(int i = 1; i < argc; i++) {
+        printf("%s\n", argv[i]);
+    }
+
+    return 0;
+}

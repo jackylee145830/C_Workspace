@@ -1,136 +1,141 @@
 
-# 字串
+# Struct 結構
 
-### 1. 字串的宣告
+### 1. Struct
 
-字串是一個字元陣列，最後一個字元以空字元 '\0' 作結尾，
+Struct是一種自訂的資料型態，可以把不同的基本資料型態(int.float.double.char)變數組合，形成新的資料型態。
 
-char 字串名稱[字串長度] ＝ “Apple”;
-
-其他種宣告方式：
-
-```
-char str1[ 6 ] = "hello";
-char str2[] = "starbucks"; // size 10
-//一般的陣列宣告也適用，只是要注意會多一項‘\0’
-char str3[ 6 ] = {'h', 'e', 'l', 'l', '0', '\0'};
-char str4[] = {'s', 't', 'a', 'r', 'b', 'u', 'c', 'k', 's', '\0'};
-```
-
-
-若要得知字串所含字元長度（不包括空字元），則可以使用 strlen 函式：
-size_t strlen( const char *str );
-
-
-如果要進行字串複製，可以使用 strcpy 函式，若要複製字串中若干字元內容，可以使用 strncpy：
-char *strcpy( char *restrict dest, const char *restrict src );
-char *strncpy( char *restrict dest, const char *restrict src, size_t count );
-
-第一個參數是目的字元陣列，第二個參數是來源字串，strncpy 第三個參數則是要複製的字元長度，
-
-&emsp;<!--空行-->
-
-
-### 2. 字串的輸入、輸出 (String Input / Output)
-
-輸入(String Input)
-
-**scanf**
 ```
 #include <stdio.h>
 #include <string.h>
+
+struct students{
+    int id;
+    char name[20];
+    int chinese;
+    int english;
+};
+
 int main()
 {
+    struct students one;
+    
+    one.id = 1;
+    strcpy(one.name, "張小美");
+    one.chinese = 77;
+    one.english = 83;
+
+    printf("學生編號: %d\n", one.id);
+    printf("姓名: %s\n", one.name);
+    printf("國文成績: %d\n", one.chinese);
+    printf("英文成績: %d\n", one.english);
+
+    return 0;
+}
+```
+
+#### 定義struct
+
+1. 純粹定義struct
+```
+struct students{
+    int id;
     char name[20];
+    int chinese;
+    int english;
+};
+```
+struct結構宣告
+```
+struct students someone;
+```
+2. 定義struct的同時宣告變數
+```
+struct students{
+    int id;
+    char name[20];
+    int chinese;
+    int english;
+}someone;
+```
+
+3. 定義struct也宣告struct別名
+```
+struct students{
+    int id;
+    char name[20];
+    int chinese;
+    int english;
+}
+typedef struct students Student;
+```
+替這個新struct取好Student的別名了
+```
+Student someone;
+```
+
+4. 在定義struct時直接取別名
+```
+typedef struct{
+    int id;
+    char name[20];
+    int chinese;
+    int english;
+}Student;
+```
+
+&emsp;<!--空行-->
+
+### struct內也可以其他的struct
+
+```
+struct Student_Detail {
     int age;
-    printf("Please enter your name and age\n");
-    scanf("%s %d", name, &age);
-    return 0;
+    char *name;
+    char *address;
+};
+struct Student_Data {
+    int stuid;
+    struct Student_Detail detail;
+};
+void main() {
+    struct Student_Data x;
+    x.stuid = 100;
+    x.detail.age = 20;
+    x.detail.name = "Johnson Lee";
+    x.detail.address = "Nation Chi Nan University";
 }
 ```
-**fgets**
 
-fgets(陣列（字串）名稱, 想要讀取的數量大小, stdin)
+### 用於struct的運算符號
 
-fgets()會在輸出時，自動多加換行\n。
+在如下的結構定義裡,next前面的*不可省略,否則就遞迴定義了,Compiler將無法決定struct list的大小。
 ```
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-    char name[20];
- 
-    fgets (name, 20, stdin);
-    puts(name);
-    return 0;
-}
+struct list {
+    int data;
+    struct list *next; // a pointer to struct list
+};
+
+struct list listOne, listTwo, listThree;
+
+listOne.next = &listTwo;
+listTwo.next = &listThree;
+// 以下想要由listOne設定到listThree的data
+listOne.next.next.data = 0; // 這不合法, 因為.的左邊必須是struct,不可以是pointer
+(*(*listOne.next).next).data = 0; // 這樣寫才對
+```
+你會發現上面的例子中, 如果struct裡面有pointer to struct, 而我們想要用該pointer來存取結構成員時, 就必須很小心的用*和()來表達。由於結構成員包括指向結構的指標(define a pointer to struct in a struct), 是很常見的事情, 這樣的(*(*listOne.next).next).data語法既難寫又難懂, 因此C語言定義了->運算符號。此符號的左邊是一個pointer to struct, 右邊則是該pointer指到的結構成員。->為第一優先權左結合, 因此
+
+```
+(*(*listOne.next).next).data = 0; //這樣寫才對
+listOne.next->next->data = 0; // 這樣寫更漂亮
 ```
 
 &emsp;<!--空行-->
 
-輸出（String Output）
+### 動態空間分配
+所謂動態空間分配指的是,在執行期間由程式向作業系統或程式庫要求後才分配的空間,這塊記憶體區域稱為Heap(堆積)。C語言的動態空間分配主要透過malloc和free兩函數來處理。這兩個函數的宣告如下:
 
-**printf**
-
-**puts**
-
-
-&emsp;<!--空行-->
-
-### 3.string.h
-
-**strlen()**
-
-得到字串長度
-```
-#include <stdio.h>
-#include <string.h>
-
-int main(void) {
-    char buf[80];
-
-    puts("input string...");
-    scanf("%s", buf);
-
-    size_t length = strlen(buf);
-    printf("string length:%lu\n", length);
-
-    return 0;
-}
-```
-
-strcat() — 合併兩個字串
-
-strncat(str1（被合併的字串）, str2（原本的字串）, n) — 將str2的前n個字母合併到str1上
-
-strcpy() — 複製字串
-
-strncpy(str1, str2, n) — 從第str2中的第n個字母複製到str1上
-
-strcmp() — 比較兩個字串
-
-strchr(str1, c) — 回傳字母 c 在str1上的哪一個位置  當沒找到字母c，就會回傳NULL
-
-strrchr(str1, c) — 倒著找回來字母 c 在str1上的哪一個位子
-
-&emsp;<!--空行-->
-
-**字串轉換成數字**
-1. atoi ， ACSII convert to integer
-2. atof ， ACSII convert to float
-3. atol ， ACSII convert to long integer
-```
-#include <stdio.h>      /* printf, fgets */
-#include <stdlib.h>     /* atoi */
-
-int main ()
-{
-    int a;
-    char memory[256];
-    printf ("Enter a number: ");
-    fgets (memory, 256, stdin);
-    a = atoi (memory);
-    printf ("The value entered is %d. Its double is %d.\n", a, a*2);
-    return 0;
-}
-```
+void *malloc(size_t size);
+void free(void *ptr);
+透過malloc()所分配出來的空間必須由使用者呼叫free()才能歸還給系統。初學者常犯的錯誤之一,就是忘了用free()歸還空間,這會造成程式佔用太多記憶體,此現象稱為memory leakage。相反的,如果空間已用free()歸還了,卻還試著去使用那塊記憶體,則會發生Segmentation Fault (core dumped)的錯誤。

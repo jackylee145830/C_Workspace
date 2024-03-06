@@ -18,17 +18,17 @@ output should be x^2 - 3x.
 8. The constants 1 and -1 should appear only as the constant term. That is, rather than
 -1x^3 + 1x^2 + 3x^1 - 1, the output should appear as -x^3 + x^2 + 3x - 1.
 
-Input
+Input  
 The input file will contain one or more lines of coefficients delimited by one or more spaces. There are
 nine coefficients per line, each coefficient being an integer with a magnitude of less than 1000.
 
-Output
+Output  
 The output file should contain the formatted polynomials, one per line.
 
-Sample Input
-0 0 0 1 22 -333 0 1 -1
-0 0 0 0 0 0 -55 5 0
+Sample Input  
+0 0 0 1 22 -333 0 1 -1  
+0 0 0 0 0 0 -55 5 0  
 
-Sample Output
-x^5 + 22x^4 - 333x^3 + x - 1
--55x^2 + 5x
+Sample Output  
+x^5 + 22x^4 - 333x^3 + x - 1  
+-55x^2 + 5x  

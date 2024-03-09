@@ -5,7 +5,8 @@
 using namespace std;
 main()
 {
-    // 陣列處理
+    // Polynomial Showdown
+    
     string result;
     string intput[9];
 

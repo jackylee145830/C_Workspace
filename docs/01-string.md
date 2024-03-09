@@ -2,7 +2,7 @@
 
 C++ 整數與字串轉換 int string conversion  
 
-整數轉字串 int to string  
+### 整數轉字串 int to string  
 使用C++11標準函式庫string的std::to_string()可把整數轉為字串。
 ```c++
 main.cpp
@@ -18,7 +18,7 @@ int main() {
 }
 ```
 
-字串轉整數 string to int  
+###  字串轉整數 string to int  
 使用C++11標準函式庫string的std::stoi()可把字串轉為整數。
 ```c++
 main.cpp
@@ -30,6 +30,30 @@ int main() {
     string s = "123";
     int i = stoi(s);
 
+    return 0;
+}
+```
+
+###  char to string  
+using stringstream
+
+```c++
+#include <iostream>
+#include <string>
+#include <sstream>
+ 
+int main()
+{
+    char c = 'A';
+ 
+    // using stringstream
+ 
+    std::string s;
+    std::stringstream ss;
+    ss << c;
+    ss >> s;                // or, use `s = ss.str()`
+    std::cout << s << std::endl;
+ 
     return 0;
 }
 ```

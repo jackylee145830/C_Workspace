@@ -3,6 +3,7 @@
 #include <string>
 
 using namespace std;
+
 main()
 {
     // Polynomial Showdown
@@ -29,11 +30,13 @@ main()
         if (intput[i] != "0")
         {
             // 判斷是否加入符號+，確認第1個字元是不是-
-            string plu = "+";
+            string plu = " + ";
             char c = intput[i].at(0);
             if (c == '-')
             {
-                plu = "";
+                plu = " - ";
+                //這裡將負號先從數字移除
+                intput[i]=intput[i].substr(1, intput[i].length() - 1);
             }
 
             // 判斷是否顯示數字
@@ -65,13 +68,16 @@ main()
         }
     }
 
-    // 輸出前，移除字串第1個字元是+
-    char c = result.at(0);
+    // 輸出前，移除字串第2個字元是+
+    char c = result.at(1);
     if (c == '+')
     {
-        result = result.substr(1, result.length() - 1);
+        result = result.substr(3, result.length() - 1);
     }
-
+    else if (c == '-')
+    {
+        result = result.substr(2, result.length() - 1);
+    }
     cout << result << endl;
 
     /*

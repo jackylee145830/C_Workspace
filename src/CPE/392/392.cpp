@@ -6,7 +6,12 @@ using namespace std;
 main()
 {
     // Polynomial Showdown
-    
+    // 思考處理
+    // 依輸入字串逐一處理
+    // 判斷是否加入符號+，確認第1個字元是不是-
+    // 判斷是否顯示數字
+    // 判斷是否顯示次方
+
     string result;
     string intput[9];
 

@@ -1,5 +1,11 @@
 # 392 Polynomial Showdown
 
+<!--
+<img src="../pdf/392.pdf"  width="60%" height="60%">
+![pdf](../pdf/392.pdf)
+{%pdf ../pdf/392.pdf %}
+-->
+
 Given the coefficients of a polynomial from degree 8 down to 0, you are to format the polynomial in a
 readable format with unnecessary characters removed. For instance, given the coefficients 0, 0, 0, 1, 22,
 -333, 0, 1, and -1, you should generate an output line which displays x^5 + 22x^4 - 333x^3 + x - 1.

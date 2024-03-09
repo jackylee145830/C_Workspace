@@ -67,4 +67,14 @@ main()
     }
 
     cout << result << endl;
+
+    /*
+    Sample Input  
+    0 0 0 1 22 -333 0 1 -1  
+    0 0 0 0 0 0 -55 5 0  
+
+    Sample Output  
+    x^5 + 22x^4 - 333x^3 + x - 1  
+    -55x^2 + 5x
+    */
 }

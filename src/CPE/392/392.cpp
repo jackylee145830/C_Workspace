@@ -30,6 +30,7 @@ main()
         if (intput[i] != "0")
         {
             // 判斷是否加入符號+，確認第1個字元是不是-
+            //第5點+-符號前後要空白
             string plu = " + ";
             char c = intput[i].at(0);
             if (c == '-')

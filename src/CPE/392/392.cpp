@@ -63,7 +63,7 @@ main()
     char c = result.at(0);
     if (c == '+')
     {
-        result = result.substr(1, sizeof(result) - 2);
+        result = result.substr(1, result.length() - 1);
     }
 
     cout << result << endl;

@@ -6,6 +6,7 @@ using namespace std;
 
 main()
 {
+    // UVA392
     // Polynomial Showdown
     // 思考處理
     // 依輸入字串逐一處理

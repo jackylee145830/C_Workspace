@@ -7,7 +7,9 @@ using std::stoi;
 
 main()
 {
-    // 10402 What's Cryptanalysis?
+    // UVA10008 CPE10402 
+    // What's Cryptanalysis?
+    
     // 思考處理
     // 將字串集中
     // 拆解計算字數

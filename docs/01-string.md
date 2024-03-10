@@ -1,9 +1,16 @@
 # string 字串
 
-C++ 整數與字串轉換 int string conversion  
+C++ 整數與字串轉換
 
-### 整數轉字串 int to string  
-使用C++11標準函式庫string的std::to_string()可把整數轉為字串。
+* 整數轉字串 int to string
+* 字串轉整數 string to int
+* one char to string
+* char to string
+
+### 整數轉字串 int to string
+
+使用 C++11 標準函式庫 string 的 std::to_string()可把整數轉為字串。
+
 ```c++
 main.cpp
 #include <iostream>
@@ -18,8 +25,13 @@ int main() {
 }
 ```
 
-###  字串轉整數 string to int  
-使用C++11標準函式庫string的std::stoi()可把字串轉為整數。
+### 字串轉整數 string to int
+
+使用 C++11 標準函式庫 string 的 std::stoi()可把字串轉為整數。
+
+std::stoi()  
+std::atoi(s.c_str())
+
 ```c++
 main.cpp
 #include <iostream>
@@ -29,31 +41,76 @@ using namespace std;
 int main() {
     string s = "123";
     int i = stoi(s);
+    cout << "number i is " << i << endl;
+
+    string s="12";
+    int j=atoi(s.c_str());
+
+    cout << "number j is " << j << endl;
 
     return 0;
 }
 ```
 
-###  char to string  
+### one char to string
+
+把一個字元轉換為字串
+string::string(size_type count, charT ch)
+push_back()  
+append()  
+insert()
+
+```c++
+#include <iostream>
+#include <string>
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+
+constexpr int CHAR_LENGTH = 1;
+
+int main() {
+  char character = 'T';
+
+  string tmp_string(CHAR_LENGTH, character);
+  cout << tmp_string << endl;
+
+  tmp_string.push_back(character);
+  cout << tmp_string << endl;
+
+  tmp_string.append(1, character);
+  cout << tmp_string << endl;
+
+  tmp_string.insert(0, 1, character);
+  cout << tmp_string << endl;
+
+  return EXIT_SUCCESS;
+}
+```
+
+### char to string
+
 using stringstream
 
 ```c++
 #include <iostream>
 #include <string>
 #include <sstream>
- 
+
 int main()
 {
     char c = 'A';
- 
+
     // using stringstream
- 
+
     std::string s;
     std::stringstream ss;
     ss << c;
     ss >> s;                // or, use `s = ss.str()`
     std::cout << s << std::endl;
- 
+
     return 0;
 }
 ```

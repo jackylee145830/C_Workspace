@@ -1,3 +1,12 @@
+/*------------------------------------------------*/
+// UVA10008 CPE10402 
+// What's Cryptanalysis?
+
+// 思考處理
+// 將字串集中
+// 拆解計算字數
+// 泡泡排序(常常用到，要背起來)
+/*------------------------------------------------*/
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -7,13 +16,7 @@ using std::stoi;
 
 main()
 {
-    // UVA10008 CPE10402 
-    // What's Cryptanalysis?
-    
-    // 思考處理
-    // 將字串集中
-    // 拆解計算字數
-    // 泡泡排序(常常用到，要背起來)
+
 
     int intputSize;
     cin >> intputSize;

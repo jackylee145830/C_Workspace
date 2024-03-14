@@ -41,6 +41,7 @@ main()
     int emirp = stoi(c1);
     // cout <<"emirp="<< emirp << endl;
 
+    // 反轉質數的判斷，
     bool isEmirp = true;
     for (int i = 2; i < intput; i++)
     {

@@ -1,5 +1,5 @@
 /*------------------------------------------------*/
-// UVA10008 CPE10402 
+// UVA10008 CPE10402
 // What's Cryptanalysis?
 
 // 思考處理
@@ -20,6 +20,8 @@ main()
 
     int intputSize;
     cin >> intputSize;
+    cin.clear();
+    cin.sync();
 
     string intput[intputSize];
     // 定義字串集合
@@ -27,13 +29,18 @@ main()
     // 輸入字串
     for (int i = 0; i < intputSize; i++)
     {
-        cin >> intput[i];
-        inputAll = inputAll + intput[i];
+        cout << "i=" << i << endl;
+
+        string strTemp;
+        getline(cin, strTemp);
+        cin.clear();
+        cin.sync();
+        inputAll = inputAll + strTemp;
     }
+    cout << inputAll << endl;
 
     // 定義英文字，比對使用
     string ENG = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //cout << inputAll << endl;
 
     // 儲存 為了方便計算陣列使用數字型態
     // 陣列初始化
@@ -48,7 +55,7 @@ main()
     {
         int c = toupper(inputAll[i]);
 
-        //篩選是否符合英文字母
+        // 篩選是否符合英文字母
         bool isExist = false;
         for (int k = 0; k < ENG.length(); k++)
         {
@@ -93,7 +100,7 @@ main()
     {
         for (int j = 0; j < inputAll.length() - 1 - i; j++)
         {
-            //由大到小 使用'<'
+            // 由大到小 使用'<'
             if (result[j][1] < result[j + 1][1])
             {
                 int temp = result[j][1];

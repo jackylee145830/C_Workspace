@@ -18,6 +18,7 @@ using namespace std;
 main()
 {
     // 先將輸入載入2維陣列
+    // at most 201 lines of inputs.
     int intputSize = 201;
     int intputValue[intputSize][2] = {0};
     for (int i = 0; i < intputSize; i++)

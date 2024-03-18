@@ -31,6 +31,8 @@ main()
     {
         cout << "i=" << i << endl;
 
+
+        //讀取整串文字
         string strTemp;
         getline(cin, strTemp);
         cin.clear();
